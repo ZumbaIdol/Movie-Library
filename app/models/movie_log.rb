@@ -1,0 +1,2 @@
+class MovieLog < ApplicationRecord
+end
