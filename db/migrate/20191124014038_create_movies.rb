@@ -5,7 +5,7 @@ class CreateMovies < ActiveRecord::Migration[6.0]
       t.string :category
       t.string :rating
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end
