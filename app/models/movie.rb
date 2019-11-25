@@ -1,5 +1,5 @@
 class Movie < ApplicationRecord
-  has_many :users
+  belongs_to :user
   has_many :comments, through: :users
   validates :title, :category, :rating, presence: true
 end
