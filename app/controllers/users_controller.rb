@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   before_action :if_not_logged_in, only: [:show]
 
+  def index
+    @users = User.all
+  end
+  
   def new
     @user = User.new
   end
