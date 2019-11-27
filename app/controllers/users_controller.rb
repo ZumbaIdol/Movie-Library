@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :if_not_logged_in, only: [:show]
 
   def new
     @user = User.new
@@ -10,7 +11,11 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to movies_path
     else
-      render :new
+      render '/users/new'
+    end
+
+    def show
+      @user = User.find_by(id: params[:id])
     end
   end
 
