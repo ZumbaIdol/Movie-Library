@@ -1,0 +1,25 @@
+<h2>Create a New Movie</h2>
+<% if @movie.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@movie.errors.count, "error") %>
+      prohibited you from saving:
+    </h2>
+
+    <ul>
+    <% @movie.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+<%= form_for @movie do |f| %>
+
+Movie: <%= f.text_field :title %> <br><br>
+Category: <%= f.text_field :category %><br><br>
+Rating: <%= f.text_field :rating %><br><br>
+
+<%= f.submit  %>
+<% end %>

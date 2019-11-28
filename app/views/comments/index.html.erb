@@ -1,0 +1,14 @@
+<h1><%= comments_header(@movie) %></h1>
+
+<ul>
+<% @comments.each do |comment| %>
+  <li>
+    <%=comment.user.name%> saw <%=comment.movie.title%> and commented <%=user.comment%>
+
+    <%= link_to "View Comment", comment_path(comment.id)%>
+
+    <%= link_to "Edit Comment, edit_comment_path(comment) if comment.user == current_user%>
+
+  </li>
+<% end %>
+</ul>
