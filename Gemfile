@@ -58,3 +58,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 
 gem 'pry'
+
+gem 'dotenv-rails'
+
+gem 'thin'
