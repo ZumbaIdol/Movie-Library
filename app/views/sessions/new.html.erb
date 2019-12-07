@@ -1,4 +1,4 @@
-<h1>Log In Below:</h1>
+<h1>Log In to Movie Library:</h1>
 
 <p><%= @error %></p>
 
@@ -8,5 +8,5 @@ Password: <%= f.password_field :password %><br><br>
 <%= f.submit "Log In" %><br><br>
 <% end %>
 
-<h4>Or <%= link_to("Log in with Facebook", '/auth/facebook') %></h4>
-<h4>Or <%= link_to("Sign Up", '/signup') %></h4>
+<h4><%= link_to("Log in with Facebook", '/auth/facebook') %></h4>
+<h4><%= link_to("Sign Up", '/signup') %></h4>

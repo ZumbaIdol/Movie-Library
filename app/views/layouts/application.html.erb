@@ -1,16 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MovieLibrary</title>
+    <title>Movie Library</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <link rel="stylesheet" href="/styles/index.css">
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%# <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <!--%=# javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %-->
   </head>
 
-  <body>
+  <body style="background-color:#E6E6FA;">
+    <%# <nav>
+
+  <% if !current_user? %>
+    <%# <%= link_to "Log In", login_path, :class => "btn btn-primary" %>
+    <%# <%= link_to "Sign Up", signup_path, :class => "btn btn-primary" %>
+  <%# <% else %>
+    <%# <%= link_to "All Users", user_path(current_user) %>
+    <%# <%= link_to "Log Out", logout_path, method: 'delete' %>
+    <%# <%= link_to "All Movies", states_path %>
+    <%# <%= link_to "Add a Comment", new_comment_path %>
+    <%# <%= link_to "All Comments", comments_path %>
+
+
+  <%# <% end %>
+<%# </nav> %>
+
     <%= yield %>
   </body>
-</html>
