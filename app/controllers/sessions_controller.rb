@@ -21,6 +21,9 @@ class SessionsController < ApplicationController
     end
   end
 
+  def oauth_login
+    
+
     # def create_facebook
     #   @user = User.find_or_create_from_auth_hash(auth_hash)
     #   self.current_user = @user
