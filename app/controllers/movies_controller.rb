@@ -15,7 +15,7 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @movies = Movie.all
+    @movies = Movie.long_titles
   end
 
   def show
