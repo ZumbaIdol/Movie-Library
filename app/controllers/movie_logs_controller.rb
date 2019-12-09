@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController
+class MovieLogsController < ApplicationController
   before_action :if_not_logged_in, only: [:create, :new, :edit, :update]
   before_action :set_movie_if_nested, only: [:new, :index]
 
