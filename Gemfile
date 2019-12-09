@@ -64,3 +64,5 @@ gem 'pry'
 gem 'dotenv-rails'
 
 gem 'thin'
+
+gem "aws-sdk-s3", require: false
