@@ -21,19 +21,16 @@ class SessionsController < ApplicationController
     end
   end
 
-  # def oauth_login
-  # end
+  def omniauth
+    @user = User.from_omniauth(auth)
+    @user.save
+    session[:user_id] = @user.id
+    redirect_to movie_path
+  end
 
+  private
 
-    # def create_facebook
-    #   @user = User.find_or_create_from_auth_hash(auth_hash)
-    #   self.current_user = @user
-    #   redirect_to '/'
-    # end
-  
-    # protected
-  
-    # def auth_hash
-    #   request.env['omniauth.auth']
-    # end
+  def auth
+    request.env['omniauth.auth']
+  end
 end
