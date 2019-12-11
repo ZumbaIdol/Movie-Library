@@ -10,9 +10,9 @@ class User < ApplicationRecord
     #   u.name = auth.info.name
     #   u.email = auth.info.email
     #   u.password = SecureRandom.hex
-    where(email: auth[:info][:email]).first_or_create do |user|
-      user.name = auth[:info][:name]
-      user.email = auth[:info][:email]
+    self.where(email: auth["info"]["email"]).first_or_create do |u|
+      u.name = auth["info"]["name"]
+      u.password = SecureRandom.hex
     end
   end
 end
