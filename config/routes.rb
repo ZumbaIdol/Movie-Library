@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
 
   resources :users
-  resources :comments
+  resources :movie_logs
   resources :movies
     resources :comments, shallow: true
 end
