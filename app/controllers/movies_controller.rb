@@ -14,9 +14,9 @@ class MoviesController < ApplicationController
     end
   end
 
-  def index
-    @movies = Movie.long_titles
-  end
+  # def index
+  #   @movies = Movie.long_titles
+  # end
 
   def show
     @movie = Movie.find_by(params[:id])
