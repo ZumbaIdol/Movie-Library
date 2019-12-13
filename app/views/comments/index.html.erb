@@ -7,7 +7,7 @@
 
     <%= link_to "View Comment", comment_path(comment.id)%>
 
-    <%= link_to "Edit Comment, edit_comment_path(comment) if comment.user == current_user%>
+    <%= link_to "Edit Comment", edit_comment_path(comment) if comment.user == current_user%>
 
   </li>
 <% end %>
