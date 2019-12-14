@@ -3,6 +3,7 @@ class MovieLogsController < ApplicationController
   before_action :set_movie_if_nested, only: [:new, :index]
 
   def new
+    @movie_log = MovieLog.new
     if @movie
       @comment = @movie.comments.build
     else
