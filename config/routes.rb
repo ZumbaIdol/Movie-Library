@@ -9,8 +9,9 @@ Rails.application.routes.draw do
 
   resources :users
   resources :movie_logs
-  resources :movies
-    resources :comments, shallow: true
+  resources :movies do
+    resources :movie_logs
+  end
 end
 
   
