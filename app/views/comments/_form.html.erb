@@ -1,27 +1,4 @@
-<% if @comment.errors.any? %>
-  <div id="error_explanation">
-    <h2>
-      <%= pluralize(@comment.errors.count, "error") %>
-      prohibited you from saving:
-    </h2>
-
-    <ul>
-    <% @comment.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
-
-
-<%= form_for @comment do |f| %>
-
-  Record a Comment for:
-    <%# f.collection_select(:movie_id, Movie.order_alpha, :id, :name)%>
-    <%= f.hidden_field :movie_id %>
-    <%= @comment.movie.title %>
-
-  <br><br>
-
-  <%= f.submit  %>
+<%= form_with model: comment do |f| %>
+    <%= f.collection_select(:user, :id, User.all, :id, :name) %>
+    <%= f.submit %>
 <% end %>
