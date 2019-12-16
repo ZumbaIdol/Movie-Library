@@ -5,7 +5,7 @@ class MovieLogsController < ApplicationController
   def new
     if @movie
       #nested
-      @movie_logs = @movie.movie_logs.build
+      @movie_log = @movie.movie_log.build
     else
       #not nested
       @movie_logs = current_user.movie_logs.build
@@ -13,7 +13,7 @@ class MovieLogsController < ApplicationController
   end
 
   def create
-    @comment = current_user.movie_logs.build(movie_log_params)
+    @comment = current_user.movie_log.build(movie_log_params)
     
     if @comment.save
       redirect_to movie_log_path
