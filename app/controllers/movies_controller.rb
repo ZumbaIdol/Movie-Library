@@ -14,9 +14,13 @@ class MoviesController < ApplicationController
     end
   end
 
-  # def index
-  #   @movies = Movie.long_titles
-  # end
+  def index
+    if params[:movie_id]
+      @movies = Movie.where(movie_id: params[:movie_id])
+    else
+      @movies = Movie.all
+    end
+  end
 
   def show
     @movie = Movie.find_by(params[:id])
