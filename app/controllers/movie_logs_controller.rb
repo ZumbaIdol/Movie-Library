@@ -15,38 +15,37 @@ class MovieLogsController < ApplicationController
     @comment = current_user.comments.build(comment_params)
     
     if @comment.save
-      redirect_to comments_path
+      redirect_to movie_logs_path
     else
-      render 'comments/new'
+      render 'movie_logs/new'
     end
   end
 
   def index
-    
     if @movie
       @comment = @movie.comment
     else
-      @comment = Comment.all
+      @comment = MovieLog.all
     end
   end
 
 
   def show
-    @comment = Comment.find_by_id(params[:id])
+    @comment = MovieLog.find_by_id(params[:id])
   end
 
   def edit
-    @comment = Comment.find_by_id(params[:id])
-    redirect_to comments_path if @comment.user != current_user
+    @comment = MovieLog.find_by_id(params[:id])
+    redirect_to movie_logs_path if @comment.user != current_user
   end
 
   def update
-    @comment= Comment.find_by_id(params[:id])
-    redirect_to comments_path if @comment.user != current_user
+    @comment= MovieLog.find_by_id(params[:id])
+    redirect_to movie_logs_path if @comment.user != current_user
     if @comment.update(comment_params)
-      redirect_to comment_path(@comment)
+      redirect_to movie_log_path(@comment)
     else
-      render 'comments/edit'
+      render 'movie_logs/edit'
     end
   end
 
