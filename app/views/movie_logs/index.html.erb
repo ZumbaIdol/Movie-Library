@@ -1,9 +1,3 @@
-<% if @movie %>
-  <h1>Comments about <%= @movie.title %></h1>
-<% else %>
-  <h1>All Movies</h1>
-<% end %>
-
 <ul>
   <% @comments.each do |comment| %>
     <li>
