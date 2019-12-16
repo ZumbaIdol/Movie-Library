@@ -1,9 +1,9 @@
-<h1><%= comments_header(@movie) %></h1>
+<h1><%= movie_logs_header(@movie) %></h1>
 
 <ul>
-  <% @comments.each do |comment| %>
+  <% @movie_logs.each do |movie_log| %>
     <li>
-      <%= comment.user.name %> saw <%=comment.movie.title %> and commented <%= user.comment %>
+      <%= movie_log.user.name %> saw <%=movie_log.movie.title %> and commented <%= user.comment %>
 
       <%= link_to "View Comment", movie_log_path(comment.id) %>
 
