@@ -13,7 +13,7 @@ class MovieLogsController < ApplicationController
   end
 
   def create
-    @comment = current_user.movie_logs.build(comment_params)
+    @comment = current_user.movie_logs.build(movie_log_params)
     
     if @comment.save
       redirect_to movie_log_path

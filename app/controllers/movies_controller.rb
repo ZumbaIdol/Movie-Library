@@ -16,7 +16,7 @@ class MoviesController < ApplicationController
 
   def index
     # id = params[:movie_id]
-    # if id && @movie = Mpvie.find_by_id(id)
+    # if id && @movie = Movie.find_by_id(id)
     #   @comments = Movie.comments
     # else
     #   @comments = MovieLog.all
