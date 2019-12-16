@@ -3,10 +3,12 @@ class MovieLogsController < ApplicationController
   before_action :set_movie_if_nested, only: [:new, :index]
 
   def new
-    @movie_log = MovieLog.new
-    if @movie
+    id = params[:movie_id]
+    if id && @movie = Movie.find_by_id(id)
+      #nested
       @comment = @movie.comments.build
     else
+      #not nested
       @comment = current_user.comments.build
     end
   end
