@@ -14,10 +14,10 @@ class MovieLogsController < ApplicationController
   end
 
   def create
-    @comment = current_user.comments.build(comment_params)
+    @comment = current_user.movie_logs.build(comment_params)
     
     if @comment.save
-      redirect_to movie_logs_path
+      redirect_to movie_log_path
     else
       render 'movie_logs/new'
     end
@@ -54,7 +54,7 @@ class MovieLogsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:movie_id)
+    params.require(:movie_log).permit(:movie_id)
   end
 
   def set_movie_if_nested

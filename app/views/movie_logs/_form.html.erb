@@ -19,7 +19,7 @@
   Record a Comment for:
     <%# f.collection_select(:movie_id, Movie.order_alpha, :id, :name)%>
     <%= f.hidden_field :movie_id %>
-    <%= @comment.movie.title %>
+    <%= @comment.user.name %>
 
   <br><br>
 
