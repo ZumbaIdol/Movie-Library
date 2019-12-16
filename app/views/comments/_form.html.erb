@@ -1,4 +1,4 @@
-<%= form_with model: comment do |f| %>
+<%= form_with model: movie_log do |f| %>
     <%= f.collection_select(:user, :id, User.all, :id, :name) %>
     <%= f.submit %>
 <% end %>
