@@ -15,12 +15,13 @@ class MoviesController < ApplicationController
   end
 
   def index
-    id = params[:movie_id]
-    if id && @movie = Mpvie.find_by_id(id)
-      @comments = Movie.comments
-    else
-      @comments = MovieLog.all
-    end
+    # id = params[:movie_id]
+    # if id && @movie = Mpvie.find_by_id(id)
+    #   @comments = Movie.comments
+    # else
+    #   @comments = MovieLog.all
+    # end
+    @movies = Movie.all
   end
 
   def show
