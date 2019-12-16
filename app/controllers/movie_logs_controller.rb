@@ -9,7 +9,7 @@ class MovieLogsController < ApplicationController
       @comment = @movie.comments.build
     else
       #not nested
-      @comment = current_user.comments.build
+      @comment = current_user.movie_logs.build
     end
   end
 
