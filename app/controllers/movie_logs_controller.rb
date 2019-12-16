@@ -25,9 +25,9 @@ class MovieLogsController < ApplicationController
 
   def index
     if @movie
-      @comment = @movie.comment
+      @comments = @movie.comment
     else
-      @comment = MovieLog.all
+      @comments = MovieLog.all
     end
   end
 
