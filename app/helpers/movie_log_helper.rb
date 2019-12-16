@@ -1,5 +1,5 @@
-module CommentHelper
-    def comments_header(movie)
+module MovieLogHelper
+    def movie_logs_header(movie)
         if movie
             "Comments about #{movie.title}"
         else
