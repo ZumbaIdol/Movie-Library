@@ -5,7 +5,8 @@ class MovieLogsController < ApplicationController
   def new
     if @movie
       #nested
-      @movie_logs = @movie.movie_logs.build
+      @movie_logs = current_user.movie_logs.build
+      @movie_logs.movie_id = @movie.id
     else
       #not nested
       @movie_logs = current_user.movie_logs.build
@@ -13,9 +14,9 @@ class MovieLogsController < ApplicationController
   end
 
   def create    
-    @movie_log = current_user.movie_logs.build(movie_params)
+    @movie_log = current_user.movie_logs.build(comment_params)
     
-    if @movie.save
+    if @movie_log.save
       redirect_to movie_logs_path
     else
       render 'movie_logs/new'
@@ -53,7 +54,7 @@ class MovieLogsController < ApplicationController
   private
 
   def comment_params
-    params.require(:movie_log).permit(:movie_id)
+    params.require(:movie_log).permit(:movie_id, :user_id, :comment)
   end
 
   def set_movie_if_nested

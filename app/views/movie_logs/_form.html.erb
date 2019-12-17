@@ -1,4 +1,5 @@
 <% if @movie_logs.errors.any? %>
+<article class= "message is-danger">
   <div id="error_explanation">
     <h2>
       <%= pluralize(@movie_logs.errors.count, "error") %>
@@ -11,13 +12,15 @@
     <% end %>
     </ul>
   </div>
+  </article>
 <% end %>
 
-
+<%= @movie_logs.user.name %>
 <%= form_for @movie_logs do |f| %>
 
   Record a Comment for:
-    <% f.collection_select(:movie_id, Movie.order('title ASC'), :id, :title) %>
+    <%# f.collection_select(:movie_id, Movie.order('title ASC'), :id, :title) %>
+    <%= f.text_area :comments %>
     <%= f.hidden_field :movie_id %>
     <%= @movie_logs.user.name %>
 

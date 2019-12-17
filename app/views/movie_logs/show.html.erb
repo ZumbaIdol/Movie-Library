@@ -1,14 +1,11 @@
-<h2><%= @user.name %></h2>
+<h2><%= @comment.user.name %></h2>
 
 <div>
-  <h3>Comments:</h3>
+  <h3>Comment:</h3>
   <ul>
-  <% @movie_log.comments.each do |comment|%>
     <li>
-      <%= comment.user.name%> says:
-      <strong><%= comment.text %></strong>
+      <%= @comment.user.name%> says:
+      <strong><%= @comment.comments %></strong>
     </li>
-
-  <% end %>
   </ul>
 </div>
