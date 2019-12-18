@@ -33,16 +33,16 @@ class MovieLogsController < ApplicationController
 
 
   def show
-    @comment = MovieLog.find_by_id(params[:id])
+    @comment = MovieLog.find_by(params[:id])
   end
 
   def edit
-    @comment = MovieLog.find_by_id(params[:id])
+    @comment = MovieLog.find_by(params[:id])
     redirect_to movie_logs_path if @comment.user != current_user
   end
 
   def update
-    @comment = MovieLog.find_by_id(params[:id])
+    @comment = MovieLog.find_by(params[:id])
     redirect_to movie_logs_path if @comment.user != current_user
     if @comment.update(comment_params)
       redirect_to movie_log_path(@comment)
