@@ -14,9 +14,9 @@ class MovieLogsController < ApplicationController
   end
 
   def create    
-    @movie_log = current_user.movie_logs.build(comment_params)
+    @movie_logs = current_user.movie_logs.build(comment_params)
     
-    if @movie_log.save
+    if @movie_logs.save
       redirect_to movie_logs_path
     else
       render 'movie_logs/new'
@@ -33,16 +33,16 @@ class MovieLogsController < ApplicationController
 
 
   def show
-    @comment = MovieLog.find_by(params[:id])
+    @comment = MovieLog.find_by_id(params[:id])
   end
 
   def edit
-    @comment = MovieLog.find_by(params[:id])
+    @comment = MovieLog.find_by_id(params[:id])
     redirect_to movie_logs_path if @comment.user != current_user
   end
 
   def update
-    @comment = MovieLog.find_by(params[:id])
+    @comment = MovieLog.find_by_id(params[:id])
     redirect_to movie_logs_path if @comment.user != current_user
     if @comment.update(comment_params)
       redirect_to movie_log_path(@comment)
@@ -54,7 +54,7 @@ class MovieLogsController < ApplicationController
   private
 
   def comment_params
-    params.require(:movie_log).permit(:movie_id, :user_id, :comment)
+    params.require(:movie_log).permit(:movie_id, :user_id, :comments)
   end
 
   def set_movie_if_nested

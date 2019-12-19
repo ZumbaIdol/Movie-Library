@@ -17,11 +17,9 @@
 <%= form_for @movie_logs do |f| %>
 
   Record a Comment for:
-    <%# f.collection_select(:movie_id, Movie.order('title ASC'), :id, :title) %>
+    <%= f.collection_select(:movie_id, Movie.order('title ASC'), :id, :title) %>
     <%= f.text_area :comments %>
-    <%= f.hidden_field :movie_id %>
     <%= @movie_logs.user.name %>
-
   <br><br>
 
   <%= f.submit "Create Comment" %><br><br>
