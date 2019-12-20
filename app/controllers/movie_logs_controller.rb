@@ -38,7 +38,7 @@ class MovieLogsController < ApplicationController
 
   def edit
     @comment = MovieLog.find_by_id(params[:id])
-    redirect_to movie_logs_path if @comment.user != current_user
+    render movie_logs_path if @comment.user != current_user
   end
 
   def update

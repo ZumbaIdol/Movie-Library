@@ -1,25 +1,25 @@
-<% if @movie_logs.errors.any? %>
+<% if movie_log.errors.any? %>
   <div id="error_explanation">
     <h2>
-      <%= pluralize(@movie_logs.errors.count, "error") %>
+      <%= pluralize(movie_log.errors.count, "error") %>
       prohibited you from saving:
     </h2>
 
     <ul>
-    <% @movie_logs.errors.full_messages.each do |msg| %>
+    <% movie_log.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
     </ul>
   </div>
 <% end %>
 
-<%= @movie_logs.user.name %>
-<%= form_for @movie_logs do |f| %>
+<%= movie_log.user.name %>
+<%= form_for movie_log do |f| %>
 
   Record a Comment for:
     <%= f.collection_select(:movie_id, Movie.order('title ASC'), :id, :title) %>
     <%= f.text_area :comments %>
-    <%= @movie_logs.user.name %>
+    <%= movie_log.user.name %>
   <br><br>
 
   <%= f.submit %><br><br>
