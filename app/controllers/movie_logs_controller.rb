@@ -5,6 +5,7 @@ class MovieLogsController < ApplicationController
   def new
     if @movie
       #nested
+      #@movie_logs = MovieLogs.new
       @movie_logs = current_user.movie_logs.build
       @movie_logs.movie_id = @movie.id
     else
@@ -17,8 +18,12 @@ class MovieLogsController < ApplicationController
     @movie_logs = current_user.movie_logs.build(comment_params)
     
     if @movie_logs.save
+      flash[:notice] = "Movie log successfully saved"
+      flash[:color] = "valid"
       redirect_to movie_logs_path
     else
+      flash[:notice] = "Something went wrong"
+      flash[:color] = "invalid"
       render 'movie_logs/new'
     end
   end
