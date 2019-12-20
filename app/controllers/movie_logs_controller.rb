@@ -16,14 +16,9 @@ class MovieLogsController < ApplicationController
 
   def create    
     @movie_logs = current_user.movie_logs.build(comment_params)
-    
     if @movie_logs.save
-      flash[:notice] = "Movie log successfully saved"
-      flash[:color] = "valid"
       redirect_to movie_logs_path
     else
-      flash[:notice] = "Something went wrong"
-      flash[:color] = "invalid"
       render 'movie_logs/new'
     end
   end
