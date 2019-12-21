@@ -15,14 +15,8 @@ class MoviesController < ApplicationController
   end
 
   def index
-    # id = params[:movie_id]
-    # if id && @movie = Movie.find_by_id(id)
-    #   @comments = Movie.comments
-    # else
-    #   @comments = MovieLog.all
-    # end
+    @most_popular = Movie.most_comments.first
     @movies = Movie.all
-    #@most_popular = MovieLog.most_comments.first
   end
 
   def show

@@ -6,4 +6,6 @@ class MovieLog < ApplicationRecord
   def name
     "#{user.name}'s comment on #{movie.title}"
   end
+
+
 end
