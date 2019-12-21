@@ -1,5 +1,6 @@
 <h1>All Movies:</h1>
-Movie with most comments: <%= @most_popular.title %>
+Movie with most comments: <%= @most_popular.title %><br><br>
+<%= link_to 'Back', users_path(@user) %>
 
 <ol>
   <% @movies.order('title ASC').each do |movie| %>

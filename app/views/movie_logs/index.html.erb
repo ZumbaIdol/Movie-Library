@@ -2,7 +2,7 @@
 <ul>
   <% @movie_logs.each do |movie_log| %>
     <li>
-      <%= movie_log.user.name %> saw <%=movie_log.movie.title %> and commented <%= movie_log.comments %>
+      <%= movie_log.user.name %> saw <%=movie_log.movie.title %> and commented <strong><%= movie_log.comments %></strong>
 
       <%= link_to "View Comment", movie_log_path(movie_log) %>
 

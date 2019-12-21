@@ -20,6 +20,7 @@ class UsersController < ApplicationController
 
     def show
       @user = current_user
+      #@movies = current_user.movies
     end
   end
 
