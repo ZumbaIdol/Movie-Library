@@ -22,6 +22,7 @@ class MoviesController < ApplicationController
     #   @comments = MovieLog.all
     # end
     @movies = Movie.all
+    #@most_popular = MovieLog.most_comments.first
   end
 
   def show
