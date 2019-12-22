@@ -7,6 +7,7 @@
       <%= link_to "View Comment", movie_log_path(movie_log) %>
 
       <%= link_to "Edit Comment", edit_movie_log_path(movie_log) if movie_log.user == current_user %>
+
     </li>
   <% end %>
 </ul>
