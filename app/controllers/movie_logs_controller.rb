@@ -52,9 +52,7 @@ class MovieLogsController < ApplicationController
     end
 
   def destroy
-    @movie_log = MovieLog.find(params[:id])
-    @comments = @user.comments.find(params[:id])
-    @comments.destroy
+    @comment = MovieLog.find(params[:id]).destroy
     flash[:notice] = "Comment was deleted"
     redirect_to user_path(current_user)
   end
