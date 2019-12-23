@@ -50,13 +50,14 @@ class MovieLogsController < ApplicationController
     else
       render 'movie_logs/edit'
     end
+  end
 
   def destroy
-    @comment = MovieLog.find(params[:id]).destroy
-    flash[:notice] = "Comment was deleted"
-    redirect_to user_path(current_user)
+    @comment = MovieLog.find(params[:id])
+    @comment.destroy
+    flash[:notice] = "Comment was succesffuly deleted!"
   end
-end
+
 
   private
 
@@ -65,6 +66,8 @@ end
   end
 
   def set_movie_if_nested
-  @movie = Movie.find_by_id(params[:movie_id]) if params[:movie_id]
+    @movie = Movie.find_by_id(params[:movie_id]) if params[:movie_id]
   end
 end
+
+
