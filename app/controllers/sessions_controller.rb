@@ -1,11 +1,5 @@
 class SessionsController < ApplicationController
 
-  def destroy
-    session.delete :user_id
-    @current_user = nil
-    redirect_to root_path
-  end
-
   def new
   end
 
@@ -14,19 +8,24 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
       flash[:success] = "User successfully created!"
-      redirect_to user_movies_path(@user)
+      redirect_to movies_path(@user)
     else
       @error = "Login failed. Please try again."
       render '/sessions/new'
     end
   end
 
+  def destroy
+    session.delete :user_id
+    @current_user = nil
+    redirect_to root_path
+  end
+
   def omniauth
     @user = User.from_omniauth(auth)
-  # end
-  session[:user_id] = @user.id
-  redirect_to user_movies_path(@user)
-end
+    session[:user_id] = @user.id
+    redirect_to movies_path(@user)
+  end
 
   private
 
