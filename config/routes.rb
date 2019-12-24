@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :users
   resources :movie_logs
   resources :movies do
-    resources :movie_logs
+    resources :movie_logs, shallow: true
   end
 end
 

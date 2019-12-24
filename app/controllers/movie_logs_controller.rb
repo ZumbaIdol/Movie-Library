@@ -53,9 +53,9 @@ class MovieLogsController < ApplicationController
   end
 
   def destroy
-    @comment = MovieLog.find(params[:id])
-    @comment.destroy
-    flash[:notice] = "Comment was succesffuly deleted!"
+    MovieLog.find(params[:id]).destroy
+    flash[:notice] = "Comment was successfully deleted"
+    redirect_to user_path(current_user)
   end
 
 
