@@ -24,7 +24,7 @@ class MovieLogsController < ApplicationController
   end
 
   def index
-   
+    @most_popular = Movie.most_comments.first
     if @movie
       @movie_logs = @movie.comment
     else
