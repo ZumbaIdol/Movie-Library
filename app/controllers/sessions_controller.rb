@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
     @user = User.from_omniauth(auth)
   # end
   session[:user_id] = @user.id
-  redirect_to user_path(@user)
+  redirect_to user_movies_path(@user)
 end
 
   private
