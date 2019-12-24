@@ -10,9 +10,6 @@ Rails.application.routes.draw do
   
   resources :users
   resources :movie_logs
-  # resources :users, only: [] do
-  #   resources :movies, module: :users, only: :index
-  # end
   resources :movies do
     resources :movie_logs, shallow: true
   end
