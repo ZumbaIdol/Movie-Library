@@ -1,13 +1,11 @@
 <h1>All Movies:</h1>
 <h3>Movie with most comments: <strong><%= @most_popular.title %></strong></h3><br><br>
-<%= link_to 'Back', users_path(@user) %>
+<%= link_to 'Back', user_movies_path(@user) %>
 
 <ol>
   <% @movies.order('title ASC').each do |movie| %>
     <li>
       <%= link_to movie.title, movie_path(movie) %> 
-      <%= link_to 'See comments', movie_logs_path(@comment) %>
-      <%= link_to 'Add a Comment', new_movie_movie_log_path(movie) %>
     </li>
   <% end %>
 </ol>

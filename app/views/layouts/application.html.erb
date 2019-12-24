@@ -21,7 +21,7 @@
         <%= link_to "Log In", login_path, :class => "btn btn-primary" %>
         <%= link_to 'Sign Up', signup_path, :class => "btn btn-primary" %>
       <% else %>
-        <%= link_to "Home", user_path(@current_user) %>           
+        <%= link_to "Home", user_movies_path(@current_user) %>           
         <%= link_to "All Movies", movies_path %>
         <%= link_to "Add a Movie", new_movie_path %>
         <%= link_to "All Comments", movie_logs_path %>

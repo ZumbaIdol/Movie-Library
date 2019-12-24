@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
   has_many :movie_logs
-  has_many :movies, through: :movie_log
+  has_many :movies, through: :movie_logs
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
 
