@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
       flash[:success] = "User successfully created!"
-      redirect_to movies_path(@user)
+      redirect_to user_path(@user)
     else
       @error = "Login failed. Please try again."
       render '/sessions/new'
