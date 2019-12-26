@@ -13,14 +13,12 @@
   </div>
 <% end %>
 
-<%= movie_log.user.name %>
+<h3><%= movie_log.user.name %></h3>
 <%= form_for movie_log do |f| %>
 
   Record a Comment for:
     <%= f.collection_select(:movie_id, Movie.order('title ASC'), :id, :title) %>
-    <%= f.text_area :comments %>
-    <%= movie_log.user.name %>
-  <br><br>
+    <%= f.text_area :comments %><br><br>
 
   <%= f.submit %><br><br>
 <% end %>
