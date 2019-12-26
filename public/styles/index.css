@@ -14,9 +14,9 @@ body {
   background-color: #E6E6FA;
 }
 
-/* .branding {
+.branding {
   clear: both;
-} */
+}
 
 footer.branding {
   border-top: 2px solid #ccc;
