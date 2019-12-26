@@ -3,6 +3,7 @@ class MovieLogsController < ApplicationController
   before_action :set_movie_if_nested, only: [:new, :index]
 
   def new
+    @most_popular = Movie.most_comments.first
     if @movie
       #nested
       #@movie_logs = MovieLogs.new
