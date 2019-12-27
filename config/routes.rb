@@ -6,12 +6,11 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new', as: 'login'
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
-
   
   resources :users
   resources :movie_logs
   resources :movies do
-    resources :movie_logs, shallow: true
+    resources :movie_logs
   end
 end
 

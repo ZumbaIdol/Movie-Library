@@ -26,12 +26,19 @@ class MovieLogsController < ApplicationController
 
   def index
     @most_popular = Movie.most_comments.first
-    if @movie
-      @movie_logs = @movie.comment
+    if @movies
+      @movie_logs = @movies.comment
+      #@movie_logs = Movie.find(params[:movie_id]).movie_logs
     else
       @movie_logs = MovieLog.all
     end
   end
+
+  # def comments_index
+  #   @movie_log = MovieLog.find(params[:id])
+  #   @comments = MovieLog.comments
+  #   render template: 'comments/index'
+  # end
 
 
   def show
@@ -58,16 +65,16 @@ class MovieLogsController < ApplicationController
 
   private
 
+  def comment
+    @comment = MovieLog.find_by_id(params[:id])
+  end
+
   def comment_params
     params.require(:movie_log).permit(:movie_id, :user_id, :comments)
   end
 
   def set_movie_if_nested
     @movie = Movie.find_by_id(params[:movie_id]) if params[:movie_id]
-  end
-
-  def comment
-    @comment = MovieLog.find_by_id(params[:id])
   end
 end
 
