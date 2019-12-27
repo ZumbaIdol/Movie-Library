@@ -1,12 +1,12 @@
 class MovieLogsController < ApplicationController
   before_action :if_not_logged_in, only: [:create, :new, :edit, :update]
   before_action :set_movie_if_nested, only: [:new, :index]
+  before_action :comment, only: [:show, :edit, :update]
 
   def new
     @most_popular = Movie.most_comments.first
     if @movie
       #nested
-      #@movie_logs = MovieLogs.new
       @movie_logs = current_user.movie_logs.build
       @movie_logs.movie_id = @movie.id
     else
@@ -35,18 +35,14 @@ class MovieLogsController < ApplicationController
 
 
   def show
-    @comment = MovieLog.find_by_id(params[:id])
   end
 
   def edit
-    @comment = MovieLog.find_by_id(params[:id])
-    render movie_logs_path if @comment.user != current_user
   end
 
   def update
-    @comment = MovieLog.find_by_id(params[:id])
-    redirect_to movie_logs_path if @comment.user != current_user
-    if @comment.update(comment_params)
+    @comment.update(comment_params)
+    if @comment.save
       redirect_to movie_log_path(@comment)
     else
       render 'movie_logs/edit'
@@ -68,6 +64,10 @@ class MovieLogsController < ApplicationController
 
   def set_movie_if_nested
     @movie = Movie.find_by_id(params[:movie_id]) if params[:movie_id]
+  end
+
+  def comment
+    @comment = MovieLog.find_by_id(params[:id])
   end
 end
 

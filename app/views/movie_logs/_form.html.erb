@@ -15,7 +15,6 @@
 
 <h3><%= movie_log.user.name %></h3>
 <%= form_for movie_log do |f| %>
-<h4>Movie with most comments: <strong><%= @most_popular.title %></strong></h4><br><br>
 
   Record a Comment for:
     <%= f.collection_select(:movie_id, Movie.order('title ASC'), :id, :title) %>
