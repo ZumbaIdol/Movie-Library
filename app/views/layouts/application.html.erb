@@ -23,8 +23,10 @@
       <% else %>
         <%= link_to "All Movies", movies_path %>
         <%= link_to "Add a Movie", new_movie_path %>
-        <%= link_to "All Comments", movie_logs_path %>
-        <%= link_to "Add a New Comment", new_movie_log_path %>
+        <%# link_to "All Comments", movie_logs_path %>
+        <%= link_to "All Comments", movies_path %>
+        <%# link_to "Add a New Comment", new_movie_log_path %>
+        <%= link_to "Add a New Comment", new_movie_path %>
         <%= link_to 'Log Out', logout_path, method: 'delete' %>
       <% end %>
     </nav>
