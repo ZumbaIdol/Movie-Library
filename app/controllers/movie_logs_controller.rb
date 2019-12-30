@@ -59,7 +59,11 @@ class MovieLogsController < ApplicationController
   private
 
   def comment
+    @user = User.find_by(id: params[:user_id])
     @comment = MovieLog.find_by_id(params[:id])
+    if @comment.nil?
+      redirect_to movies_path(@comment), notice: "Comment not found"
+    end
   end
 
   def comment_params
