@@ -34,13 +34,6 @@ class MovieLogsController < ApplicationController
     end
   end
 
-  # def comments_index
-  #   @movie_log = MovieLog.find(params[:id])
-  #   @comments = MovieLog.comments
-  #   render template: 'comments/index'
-  # end
-
-
   def show
   end
 
